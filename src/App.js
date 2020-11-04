@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Phrase from './components/Phrase';
 
@@ -19,6 +19,12 @@ const Button = styled.button`
   padding: 1rem 3rem;
   font-size: 2rem;
   border: 2px solid black;
+  transition: background-size 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-size: 400px;
+  }
 `;
 
 function App() {
@@ -30,6 +36,10 @@ function App() {
 
     setPhrase(phrase[0]);
   }
+
+  useEffect(() => {
+    queryAPI();
+  }, []);
 
   return (
     <Container>
